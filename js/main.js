@@ -129,8 +129,13 @@ function showWord(words) {
   // Generate random array index
   const randIndex = Math.floor(Math.random() * words.length);
 
-  // Output random word
-  currentWord.innerHTML = words[randIndex];
+  // Avoid duplicating words
+  if (words[randIndex] === currentWord.innerHTML) {
+    showWord(words);
+  } else {
+    // Output random word
+    currentWord.innerHTML = words[randIndex];
+  }
 }
 
 // Countdown timer
